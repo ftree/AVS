@@ -1,0 +1,12 @@
+
+<h2><!--[gt text='Gesichtverifizierung OK für %1$s' tag1=$sitename]--></h2>
+
+<p>
+<!--[gt text='Klicke bitte auf den nachstehenen Link um dir einen User anzulegen.']--><br>
+<a href="<!--[pnmodurl modname="AVS" func=face2face hash=$hash" fqurl=true]-->"><!--[gt text='Aktivierung Link']--></a>
+</p>
+<p>
+<!--[gt text='Sollte der Link knicht gehen kannst du den Aktivierungscode auch direkt eingeben.']--><br />
+<!--[gt text='URL: ']--><!--[pnmodurl modname="AVS" avs=face2face" fqurl=true]--><br />
+<!--[gt text='Aktivierungscode:']--><strong><!--[$hash]--></strong>
+</p>

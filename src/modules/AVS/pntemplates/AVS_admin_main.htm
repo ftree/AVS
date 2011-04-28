@@ -1,0 +1,32 @@
+<!--[include file='AVS_admin_menu.htm']-->
+
+<div id="cl_main" class="pn-admincontainer">
+	<div class="pn-adminpageicon">
+		<!--[pnimg modname=AVS src=admin.gif]-->
+	</div>	
+	
+	<h1><!--[gt text="Allgemeine Einstellungen"]--></h1>
+	<fieldset>
+		<legend><strong>aktive AVS Systeme</strong></legend>
+		<form class="z-form" action="<!--[pnmodurl modname="AVS" type="admin" func="modifySettings"]-->" method="post" enctype="application/x-www-form-urlencoded">	
+			<input type="hidden" name="main" value="1" />	
+		
+		<!--[foreach from=$plugins item=plugin]-->
+			<input type="checkbox" name="active[<!--[$plugin.value]-->]" <!--[if $plugin.active eq "1"]-->checked=checked<!--[/if]--> /> <!--[$plugin.name]--><br/>
+		<!--[/foreach]-->
+		<!--[*pnbutton mode="button" src=button_ok.gif set=icons/small value="ok" id="settings_ok" alt=OK title=OK*]-->
+			<input type="submit" value="<!--[gt text="Änderungen speichern"]-->"  />
+		</form>
+	</fieldset>
+	<fieldset>
+		<legend><strong>Freischaltcodes für FaceVerfify </strong></legend>
+		<form class="z-form" action="<!--[pnmodurl modname="AVS" type="admin" func="generateF2Fcodes"]-->" method="post" enctype="application/x-www-form-urlencoded">	
+			<div class="z-formrow">
+				<label for="avs_face2face_countcodes"><!--[gt text="Wievile Codes sollen generiert werden?"]--></label>
+				<input id="avs_face2face_countcodes" type="text" name="face2face_countcodes" />
+			</div>
+			<input type="submit" value="<!--[gt text="Codes generieren"]-->"  />					
+		</form>	
+	</fieldset>
+	
+</div>

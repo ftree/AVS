@@ -1,0 +1,14 @@
+<!--[include file='AVS_admin_menu.htm']-->
+
+<div id="cl_main" class="pn-admincontainer">
+	<div class="pn-adminpageicon">
+  	<!--[if $url eq ""]-->
+		<!--[pnimg modname=AVS src=$image]-->
+	<!--[else]-->
+		<a href="<!--[$url]-->"><!--[pnimg modname=AVS src=$image]--></a>
+	<!--[/if]-->
+	</div>	
+  
+   	<h2><!--[gt text="Settings for %s" tag1=$name]--></h2>
+	<!--[$plugincode]-->
+</div>  

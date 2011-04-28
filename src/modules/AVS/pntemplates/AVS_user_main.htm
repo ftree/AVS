@@ -1,0 +1,41 @@
+<!--[pngetstatusmsg|pnvarprephtmldisplay]-->
+<h1>Alterscheck</h1>
+
+<p>Aufgrund des Jugendschutzgesetzes sind Webseitenbetreiber dazu verpfichtet, Webseiten mit erotischem Inhalt für Kinder und Jugendliche unzugänglich zu machen. Aus diesem Grund haben wir uns dazu entschlossen, diese Seiten durch verschiedene Alters Verifikations-Systeme (AVS) zu schützen. </p>
+<p>Um diese Überprüfung vorzunehmen, wählt bitte eines der oben aufgeführten AVS-Systeme aus. Es werden in Zukunft noch weitere Systeme dazu kommen.</p>
+<p>Diese Überprüfung wird nur einmalig vorgenommen, nach Abschluß des AVS-Checks wird dies in deinem Profil vermerkt und du kannst die Seiten wieder ohne diesen zusätzlichen Schritt aufrufen. </p>
+<p>Bitte habt für diese Maßnahme Verständnis, da wir auf Dauer nur so verhindern können, dass diese Seiten von übereifrigen Jugendschützern geschlossen werden. </p>
+<p>Hier kannst du dir schon mal vorab die <a href="<!--[pnmodurl modname=Rechtliches]-->" target="_blamk"><!--[gt text='Nutzungsbedingungen']--></a> durchsehen. Bei der Auswahl deines Usernamnes must du diese dann bestätigen.</a>
+<br />
+<p>Solltest du kein AVS Login haben, verwende doch bitte das <strong>FaceVerify</strong> System.</p>
+
+<fieldset>
+	<legend><strong>Prüfmethoden</strong></legend>
+<table width="100%">
+	<tr>
+<!--[foreach from=$plugins item=plugin]-->
+		<td align="center">
+			<a href="<!--[pnmodurl modname="AVS" type="user" func="main" avs=$plugin.plugin]-->"><strong><!--[$plugin.name]--></strong></a>
+		</td>
+<!--[/foreach]-->
+	</tr>
+</table>
+</fieldset>
+<hr />
+<form class="z-form" action="<!--[pnmodurl modname="AVS" func="face2face"]-->" method="post" enctype="multipart/form-data">
+<fieldset>
+	<legend><strong><!--[gt text="Freischaltcode eingeben"]--></strong></legend>
+	<!--[gt text="Wenn du schon einen Freischaltcode per Mail zugesandt bekommen hast, kannst du diesen hier eingeben."]--><br />
+	<!--[gt text="Du gelangst dann weiter zur Seite wo du deinen Account anlgegen kannst."]-->
+	<div id="code">	
+	<div class="z-formrow">
+		<label for="avs_hash"><!--[gt text="Freischaltcode"]--></label>
+		<input id="avs_hash" type="text" name="hash" value="" size="50" maxlength="100" />
+	</div>	
+	<div class="z-formbuttons">
+		<!--[pnbutton src="button_ok.gif" set="icons/small" __alt="Save" __title="Save"]-->
+	</div>	
+	</div>
+	
+</fieldset>
+</form>

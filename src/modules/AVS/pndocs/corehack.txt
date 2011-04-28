@@ -1,0 +1,16 @@
+function users_user_register($args)
+{
+    // If has logged in, header to index.php
+    if (pnUserLoggedIn()) {
+        return pnRedirect(pnConfigGetVar('entrypoint', 'index.php'));
+    }
+
+    if (pnModAvailable('AVS')) {
+	    if (!pnModAPIFunc('AVS','user','check')) {
+	    	return pnRedirect(pnModURL('AVS'));
+	    }
+    }
+
+
+.....
+

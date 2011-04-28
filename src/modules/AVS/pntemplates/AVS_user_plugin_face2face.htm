@@ -1,0 +1,66 @@
+<h1><!--[gt text="FaceVerify Verifizierungs Methode"]--></h1>
+<!--[pngetstatusmsg|pnvarprephtmldisplay]-->
+
+<form class="z-form" action="<!--[pnmodurl modname="AVS" func="face2face"]-->" method="post" enctype="multipart/form-data">
+<fieldset>
+	<legend><strong><!--[gt text="Bilder upload"]--></strong></legend>
+<!--[*
+	<div class="z-formrow">
+		<label for="avs_username"><!--[gt text="Username"]--></label>
+		<input id="avs_username" type="text" name="username" value="<!--[$username]-->" size="50" maxlength="100" />
+		<p class="z-formnote z-informationmsg">
+			<!--[gt text="Dein gewünschter Username"]-->
+		</p>
+	</div>	
+*]-->	
+	<div class="z-formrow">
+		<label for="avs_mail"><!--[gt text="eMail Adresse"]--></label>
+		<input id="avs_mail" type="text" name="mail" value="<!--[$smail]-->" size="50" maxlength="100" />
+		<p class="z-formnote z-informationmsg">
+			<!--[gt text="Eine gültige eMail Adresse. An diese wird dir dann der Freischaltcode gesendet."]-->
+		</p>		
+	</div>	
+	<div class="z-formrow">
+		<label for="avs_imageface"><!--[gt text="Gesichts Bild"]--></label>
+		<input type="file" name="imageface" id="avs_imageface" />
+		<p class="z-formnote z-informationmsg">
+		<!--[gt text="Schreibe auf ein Blatt Papier (oder auf dich selbst) <strong>%s</strong> und halte es unter deinem Kopf und mach ein Foto." tag1=$settings.face2face_imagetext]--> 
+		<br />
+		<!--[gt text="Der Schriftzug und dein Gesicht muss zu erkennen sein."]-->
+		</p>		
+	</div>	
+	<div class="z-formrow">
+		<label for="avs_imagepass"><!--[gt text="Pass/Ausweiß Bild"]--></label>
+		<input type="file" name="imagepass" id="avs_imagepass" />
+		<p class="z-formnote z-informationmsg">
+			<!--[gt text="Scanne oder fotografiere bitte einen Ausweiß oder Pass ein."]--> 
+			<br />
+			<!--[gt text="Wichtig ist das dein Gesicht und dein Geburtsdatum sichtbar sind."]--> 
+			<br />			
+			<!--[gt text="Alle anderen Informationen können unkenntlich gemacht werden."]-->
+		</p>		
+	</div>	
+
+	<div class="z-formbuttons">
+		<!--[pnbutton src="button_ok.gif" set="icons/small" __alt="Save" __title="Save"]-->
+		<a href="<!--[pnmodurl modname=AVS]-->"><!--[pnimg modname=core src="button_cancel.gif" set="icons/small" __alt="Cancel" __title="Cancel"]--></a>
+	</div>	
+</fieldset>	
+</form>
+<form class="z-form" action="<!--[pnmodurl modname="AVS" func="face2face"]-->" method="post" enctype="multipart/form-data">
+<fieldset>
+	<legend><strong><!--[gt text="Freischaltcode eingeben"]--></strong></legend>
+	<!--[gt text="Wenn du schon einen Freischaltcode per Mail zugesandt bekommen hast, kannst du diesen hier eingeben."]--><br />
+	<!--[gt text="Du gelangst dann weiter zur Seite wo du deinen Account anlgegen kannst."]-->
+	<div id="code">	
+	<div class="z-formrow">
+		<label for="avs_hash"><!--[gt text="Freischaltcode"]--></label>
+		<input id="avs_hash" type="text" name="hash" value="" size="50" maxlength="100" />
+	</div>	
+	<div class="z-formbuttons">
+		<!--[pnbutton src="button_ok.gif" set="icons/small" __alt="Save" __title="Save"]-->
+	</div>	
+	</div>
+	
+</fieldset>
+</form>

@@ -1,0 +1,94 @@
+<!--[include file='AVS_admin_menu.htm']-->
+
+<div id="cl_main" class="pn-admincontainer">
+	<div class="pn-adminpageicon">
+  	<!--[if $url eq ""]-->
+		<!--[pnimg modname=AVS src=$image]-->
+	<!--[else]-->
+		<a href="<!--[$url]-->"><!--[pnimg modname=AVS src=$image]--></a>
+	<!--[/if]-->
+	</div>	
+  
+   	<h2><!--[gt text="Zur Freigabe wartende User"]--></h2>
+	<!--[pnsecgenauthkey module="AVS" assign=authid]-->
+
+	<form action="<!--[pnmodurl modname="AVS" type="admin" func="showWaitingUsers"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<!--[gt text="Filter:"]-->
+		<select name="status">
+			<option value="0">&nbsp;</option>
+			<option value="0"><!--[gt text="waiting"]--></option>
+			<option value="10"><!--[gt text="verifiziert Freischlatcode gesendet"]--></option>		
+			<option value="11"><!--[gt text="manuell no email"]--></option>				
+			<option value="12"><!--[gt text="Freischlatcode manuell versendet"]--></option>						
+			<option value="20"><!--[gt text="NICHT verifiziert"]--></option>								
+			<option value="30"><!--[gt text="Freischaltcode aktiviert"]--></option>										
+			<option value="40"><!--[gt text="User registriert"]--></option>												
+			<option value="50"><!--[gt text="Freischaltcode abgelaufen"]--></option>														
+		</select>
+		<input type="submit" name="<!--[gt text="filter"]-->" value="<!--[gt text="filtern"]-->"  />
+	</form>
+	<table class="z-datatable">
+	  <thead>
+		<tr>
+			<th><!--[gt text="Username"]--></th>
+			<th><!--[gt text="Mail"]--></th>
+			<th><!--[gt text="Gesicht"]--></th>
+			<th><!--[gt text="Pass"]--></th>
+			<th><!--[gt text="Status"]--></th>
+			<th><!--[gt text="Hash"]--></th>			
+			<th><!--[gt text="lu_date"]--></th>
+			<th><!--[gt text="cr_date"]--></th>
+			<th><!--[gt text="Aktion"]--></th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<!--[foreach from=$users item=user]-->
+		<tr class="<!--[cycle values="z-odd,z-even"]-->">
+			<td><!--[$user.userid|userprofilelink]--></td>
+			<td><!--[$user.mail]--></td>
+			<td><!--[if $user.image_face neq ""]--><img src="<!--[pnmodurl modname="AVS" type="admin" func="showImage" id=$user.id face=1 size="thumb"]-->"><!--[/if]--></td>
+			<td><!--[if $user.image_pass neq ""]--><img src="<!--[pnmodurl modname="AVS" type="admin" func="showImage" id=$user.id face=0 size="thumb"]-->"><!--[/if]--></td>		
+			<td>
+			<!--[if $user.status eq 0]-->
+				<!--[gt text="Warted"]-->
+			<!--[elseif $user.status eq 10]-->
+				<!--[gt text="Freigabe gesendet"]-->
+			<!--[elseif $user.status eq 20]-->
+				<!--[gt text="Verweigert"]-->
+			<!--[elseif $user.status eq 30]-->
+				<!--[gt text="Code aktiviert"]-->		
+			<!--[elseif $user.status eq 40]-->
+				<!--[gt text="Registriert"]-->
+			<!--[elseif $user.status eq 50]-->
+				<!--[gt text="Code abgelaufen"]-->		
+			<!--[/if]-->				
+			</td>
+			<td><!--[$user.hash]--></td>			
+			<td><!--[$user.lu_date|date_format:"%d.%m.%Y %H:%M"]--></td>
+			<td><!--[$user.cr_date|date_format:"%d.%m.%Y %H:%M"]--></td>		
+			<td>
+				<form action="<!--[pnmodurl modname="AVS" type="admin" func="doVerify"]-->" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="verify" value="0" />
+					<input type="hidden" name="authid" value="<!--[$authid]-->" />
+					<input type="hidden" name="id" value="<!--[$user.id]-->" />								
+					<a href="<!--[pnmodurl modname="AVS" type="admin" func="showVerify" id=$user.id ]-->">
+						<!--[pnimg modname=core set=icons/small src=search.gif  __alt='vergrößert anzeigen' __title='vergrößert anzeigen']-->
+					</a>
+					&nbsp;
+					<a href="<!--[pnmodurl modname="AVS" type="admin" func="doVerify" verify="1" authid=$authid id=$user.id]-->">
+						<!--[pnimg modname=core set=icons/small src=edit_add.gif __alt='freigeben' __title='freigeben']-->
+					</a>			
+					&nbsp;
+					<!--[pnbutton src="edit_remove.gif" set="icons/small" __alt='verweigern' __title='verweigern']-->
+					<br />
+					<!--[gt text="Begründung für Ablehnung"]-->
+					<br />
+					<textarea name="reason" cols="30" rows="2"></textarea>
+			</td>
+		</tr>
+		<!--[/foreach]-->
+	  </tbody>
+	</table>
+		
+	
+</div>

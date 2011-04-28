@@ -1,0 +1,18 @@
+	<fieldset>
+	<form class="z-form" action="<!--[pnmodurl modname="AVS" type="admin" func="modifySettings"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="plugin" value="<!--[$plugin]-->" />
+		<div class="z-formrow">
+			<label for="avs_freiab18_siteid"><!--[gt text="Site ID"]--></label>
+			<input id="avs_freiab18_siteid" name="settings[freiab18_siteid]" type="text" value="<!--[$settings.freiab18_siteid]-->"/>
+			<p class="z-formnote z-informationmsg">
+				<!--[gt text="Beschreibung"]-->
+			</p>
+		</div>	
+		<div class="z-formbuttons">
+		&nbsp;
+		<!--[pnbutton mode="button" src=button_ok.gif set=icons/small value="ok" id="settings_ok" alt=OK title=OK]-->
+		&nbsp;
+		<!--[*pnbutton mode="button" src=button_cancel.gif set=icons/small value="cancel" id="settings_cancel" alt=Abbruch title=Abbruch*]-->
+		</div>		
+	</form>
+  	</fieldset>

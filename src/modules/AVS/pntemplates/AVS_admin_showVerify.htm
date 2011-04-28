@@ -1,0 +1,20 @@
+<!--[include file='AVS_admin_menu.htm']-->
+
+<div id="cl_main" class="pn-admincontainer">
+	<div class="pn-adminpageicon">
+  	<!--[if $url eq ""]-->
+		<!--[pnimg modname=AVS src=$image]-->
+	<!--[else]-->
+		<a href="<!--[$url]-->"><!--[pnimg modname=AVS src=$image]--></a>
+	<!--[/if]-->
+	</div>	
+   	<h2><!--[gt text="User freigeben?"]--></h2>
+<!--[*  
+	<strong>JA</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Nein</strong>	
+*]-->	
+	<center>
+		<img src="<!--[pnmodurl modname="AVS" type="admin" func="showImage" id=$id face=1 ]-->">
+		<img src="<!--[pnmodurl modname="AVS" type="admin" func="showImage" id=$id face=0 ]-->">
+	</center>
+
+</div>

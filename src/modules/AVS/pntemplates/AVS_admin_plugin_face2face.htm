@@ -1,0 +1,34 @@
+	<fieldset>
+	<form class="z-form" action="<!--[pnmodurl modname="AVS" type="admin" func="modifySettings"]-->" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="hidden" name="plugin" value="<!--[$plugin]-->" />
+		<div class="z-formrow">
+			<label for="avs_face2face_imagetext"><!--[gt text="Text zur Anzeige am Bild"]--></label>
+			<input id="avs_face2face_imagetext" type="text" name="settings[face2face_imagetext]" value="<!--[$settings.face2face_imagetext]-->" size="50" maxlength="100" />
+			<p class="z-formnote z-informationmsg">
+				<!--[gt text="Text den der User auf ein Blatt schreiben soll"]-->
+			</p>
+		</div>	
+	
+		<div class="z-formrow">
+			<label for="avs_face2face_imagepath"><!--[gt text="Pfad zur Ablage der Bilder"]--></label>
+			<input id="avs_face2face_imagepath" type="text" name="settings[face2face_imagepath]" value="<!--[$settings.face2face_imagepath]-->" size="50" maxlength="100" />
+			<p class="z-formnote z-informationmsg">
+				<!--[gt text="Pfad wo die upgeloaded Bilder abgespeichert werden. Sollte außerhalb des DocumentRoot liegen"]-->
+			</p>
+		</div>	
+	
+		<div class="z-formrow">
+			<label for="avs_face2face_verificationlength"><!--[gt text="Gültigkeitsdauer des Verifikationscode in minuten"]--></label>
+			<input id="avs_face2face_verificationlength" type="text" name="settings[face2face_verificationlength]" value="<!--[$settings.face2face_verificationlength]-->" size="50" maxlength="100" />
+			<p class="z-formnote z-informationmsg">
+				<!--[gt text="Dauer in minuten, in denen der Verifikationscode nach aktivierung gültig bleibt."]-->
+			</p>
+		</div>	
+				<div class="z-formbuttons">
+		&nbsp;
+		<!--[pnbutton mode="button" src=button_ok.gif set=icons/small value="ok" id="settings_ok" alt=OK title=OK]-->
+		&nbsp;
+		<!--[*pnbutton mode="button" src=button_cancel.gif set=icons/small value="cancel" id="settings_cancel" alt=Abbruch title=Abbruch*]-->
+		</div>		
+	</form>
+  	</fieldset>

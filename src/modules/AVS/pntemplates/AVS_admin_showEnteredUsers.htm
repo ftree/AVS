@@ -1,0 +1,50 @@
+<!--[include file='AVS_admin_menu.htm']-->
+
+<div id="cl_main" class="pn-admincontainer">
+	<div class="pn-adminpageicon">
+  	<!--[if $url eq ""]-->
+		<!--[pnimg modname=AVS src=$image]-->
+	<!--[else]-->
+		<a href="<!--[$url]-->"><!--[pnimg modname=AVS src=$image]--></a>
+	<!--[/if]-->
+	</div>
+
+   	<h2><!--[gt text="User Übersicht"]--></h2>
+
+<table class="z-datatable">
+  <thead>
+	<tr>
+		<th><!--[gt text="Username"]--></th>
+		<th><!--[gt text="AVS"]--></th>
+		<th><!--[gt text="Data"]--></th>
+		<th><!--[gt text="Datum"]--></th>
+	</tr>
+  </thead>
+  <tbody>
+	<!--[foreach from=$users item=user]-->
+	<tr class="<!--[cycle values="z-odd,z-even"]-->">
+		<td><!--[$user.user_id|userprofilelink]--></td>
+		<td><!--[$user.avs]--></td>
+		<td>
+			<!--[if $user.avs eq "face2face"]-->
+				<!--[assign var=data value=$user.data|unserialize]-->
+				<a href="<!--[pnmodurl modname="AVS" type="admin" func="showVerify" id=$data.face2face_id]-->">
+					<!--[gt text="Gesicht zeigen"]-->
+				</a>
+			<!--[ else ]-->
+				<!--[foreach from=$user.dataarray item=data]-->
+					<!--[$data]-->&nbsp;
+				<!--[/foreach]-->
+			<!--[/if]-->
+		</td>
+		<td><!--[$user.cr_date|date_format:"%d.%m.%Y %H:%M"]--></td>
+	</tr>
+    <!--[/foreach]-->
+  </tbody>
+</table>
+
+<div style="text-align:center;">
+	<!--[pager show="page" rowcount=$rowcount limit=$limit display=page posvar=page]-->
+</div>
+
+</div>
